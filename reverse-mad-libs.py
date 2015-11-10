@@ -37,10 +37,15 @@ def remaining_blanks(word, mystery_words):
 def update_mystery_words(replacement, mystery_words):
 	for key in mystery_words.keys():
 		if mystery_words[key] == replacement:
-			replacement = key
-			return replacement
+			return key
 
 def play_game(ml_string, mystery_words):
+	"""
+	Initiates the game by displaying the selected mad libs statment, splitting that string and returning any present "blanks" from mystery_words, prompting the player to type in a word for the given blank, checking correct_answers to determine if user_input is correct, update mystery_words when a correct answer is given, and displaying the updated mad libs statement.
+	:inputs: ml_string is the mad libs statement returned by level_difficulty given user_choice, and mystery_words establishes values for the fill-in-the-blank positions in ml_string // also takes in raw_input from the player
+	:outputs: displays the current mad libs statement, user prompts to fill-in-the-blanks until the correct answer is given, and a "game over" statement when the game is complete
+	"""
+	
 	ml_string = display_ml(mystery_words)
 	ml_string = ml_string.split()
 	for word in ml_string:
